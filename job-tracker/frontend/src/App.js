@@ -1,15 +1,14 @@
-/// src/App.js
+// src/App.js
 import React from 'react';
 import './App.css';
-import { PipelineProvider } from './context/PipelineContext';
-import PipelinePage from './components/pipeline/PipelinePage'; // Assuming PipelinePage is your main view
+import HomePage from './pages/HomePage'; // Import your new HomePage component
+// Removed PipelineProvider and PipelinePage for now, will re-add with routing
 
 function App() {
   return (
     <div className="App">
-      <PipelineProvider>
-        <PipelinePage />
-      </PipelineProvider>
+      {/* Render your HomePage component as the main view */}
+      <HomePage />
     </div>
   );
 }
