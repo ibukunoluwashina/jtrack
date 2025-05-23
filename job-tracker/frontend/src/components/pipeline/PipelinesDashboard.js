@@ -1,6 +1,6 @@
 // src/pages/PipelinesDashboard.js
 import React from 'react';
-import { usePipelineContext } from '../context/PipelineContext'; // Access the pipeline data
+import { usePipelineContext } from '../../context/PipelineContext'; // THIS IS THE LINE TO CHANGE IN PipelinesDashboard.js
 import { useNavigate } from 'react-router-dom'; // For navigation
 import './PipelinesDashboard.css'; // For styling
 

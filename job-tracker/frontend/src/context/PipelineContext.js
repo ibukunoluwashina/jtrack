@@ -1,5 +1,5 @@
 // src/context/PipelineContext.js
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 
 export const PipelineContext = createContext();
 

@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import PipelinesDashboard from './pages/PipelinesDashboard'; // NEW: Import the dashboard
+import PipelinesDashboard from './components/pipeline/PipelinesDashboard'; // This is the CORRECT path
 import PipelinePage from './components/pipeline/PipelinePage';
 import { PipelineProvider } from './context/PipelineContext';
 
