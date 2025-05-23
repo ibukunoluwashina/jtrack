@@ -1,9 +1,16 @@
 // src/pages/HomePage.js
 import React from 'react';
-import './HomePage.css'; // Link to its specific CSS file
-// We'll import RatingStars here later
+import './HomePage.css';
+import RatingStars from '../ui/RatingStars'; // Import the RatingStars component
 
 function HomePage() {
+  const handleRatingChange = (newRating) => {
+    console.log("User rated:", newRating, "stars!");
+    // Here you would typically send this rating to a backend API
+    // or store it in your context/global state.
+    alert(`Thank you for rating us ${newRating} stars!`);
+  };
+
   return (
     <div className="home-page-container">
       <header className="home-header">
@@ -21,13 +28,11 @@ function HomePage() {
       </section>
       <section className="home-cta">
         <p>Ready to get started?</p>
-        {/* You'll add a button here later to navigate to the pipeline page */}
         <button className="start-button">Go to Pipeline</button>
       </section>
       <footer className="home-footer">
-        {/* This is where the rating component will go */}
         <h3>Rate Your Experience!</h3>
-        {/* <RatingStars /> - Will be imported here later */}
+        <RatingStars onRatingChange={handleRatingChange} /> {/* Integrate the rating component */}
         <p>&copy; 2025 Job Tracker App. All rights reserved.</p>
       </footer>
     </div>
