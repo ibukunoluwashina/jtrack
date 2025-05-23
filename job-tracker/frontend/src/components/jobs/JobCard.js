@@ -1,4 +1,4 @@
-// C:\Users\jilli\New folder (15)\jtrack\job-tracker\frontend\src\components\jobs\JobCard.js
+
 
 import React from 'react';
 import './JobCard.css'; // This CSS file should be in the same 'jobs' folder
