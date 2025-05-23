@@ -1,15 +1,23 @@
 // src/App.js
 import React from 'react';
 import './App.css';
-import HomePage from './pages/HomePage'; // Import your new HomePage component
-// Removed PipelineProvider and PipelinePage for now, will re-add with routing
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // <--- Imports
+import HomePage from './pages/HomePage';
+import PipelinePage from './components/pipeline/PipelinePage'; // <--- Ensure this path is correct
+import { PipelineProvider } from './context/PipelineContext';
 
 function App() {
   return (
-    <div className="App">
-      {/* Render your HomePage component as the main view */}
-      <HomePage />
-    </div>
+    <Router> {/* <--- Router wrapper */}
+      <div className="App">
+        <PipelineProvider> {/* <--- Provider wraps Routes */}
+          <Routes> {/* <--- Routes wrapper */}
+            <Route path="/" element={<HomePage />} /> {/* <--- Home page route */}
+            <Route path="/pipeline" element={<PipelinePage />} /> {/* <--- Pipeline page route */}
+          </Routes>
+        </PipelineProvider>
+      </div>
+    </Router>
   );
 }
 
