@@ -14,7 +14,7 @@ function HomePage() {
   return (
     <div className="home-page-container">
       <header className="home-header">
-        <h1>ᵔᴗᵔWelcome to Your Job Tracker!ᵔᴗᵔ</h1>
+        <h1>Welcome to Your Job Tracker!</h1>
     
         <p>Organize your job applications, projects, and tasks with ease.</p>
       </header>
