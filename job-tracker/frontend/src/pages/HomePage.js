@@ -14,7 +14,8 @@ function HomePage() {
   return (
     <div className="home-page-container">
       <header className="home-header">
-        <h1>Welcome to Your Job Tracker!</h1>
+        <h1>ᵔᴗᵔWelcome to Your Job Tracker!ᵔᴗᵔ</h1>
+    
         <p>Organize your job applications, projects, and tasks with ease.</p>
       </header>
       <section className="home-features">
@@ -33,7 +34,7 @@ function HomePage() {
       <footer className="home-footer">
         <h3>Rate Your Experience!</h3>
         <RatingStars onRatingChange={handleRatingChange} /> {/* Integrate the rating component */}
-        <p>&copy; 2025 Job Tracker App. All rights reserved.</p>
+        <p>&copy; 2025 Job Tracker App.Desire Vargas ღ</p>
       </footer>
     </div>
   );
