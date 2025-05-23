@@ -3,7 +3,8 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import PipelinePage from './components/pipeline/PipelinePage'; // Or PipelineList if you're using that as the main view
+import PipelinesDashboard from './pages/PipelinesDashboard'; // NEW: Import the dashboard
+import PipelinePage from './components/pipeline/PipelinePage';
 import { PipelineProvider } from './context/PipelineContext';
 
 function App() {
@@ -13,8 +14,12 @@ function App() {
         <PipelineProvider>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            {/* Make sure the path here exactly matches what HomePage's button navigates to */}
-            <Route path="/pipeline" element={<PipelinePage />} />
+            {/* New route for the dashboard */}
+            <Route path="/pipelines" element={<PipelinesDashboard />} />
+            {/* Modified route for a specific pipeline using a URL parameter */}
+            <Route path="/pipeline/:pipelineId" element={<PipelinePage />} />
+            {/* You could also have a route for AddPipeline form like: */}
+            {/* <Route path="/add-pipeline" element={<AddPipeline />} /> */}
           </Routes>
         </PipelineProvider>
       </div>

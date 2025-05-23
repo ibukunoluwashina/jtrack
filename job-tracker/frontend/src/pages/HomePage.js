@@ -2,19 +2,19 @@
 import React from 'react';
 import './HomePage.css';
 import RatingStars from '../ui/RatingStars';
-import { useNavigate } from 'react-router-dom'; // <--- Make sure this import is here
+import { useNavigate } from 'react-router-dom';
 
 function HomePage() {
-  const navigate = useNavigate(); // <--- Make sure this is here
+  const navigate = useNavigate();
 
   const handleRatingChange = (newRating) => {
     console.log("User rated:", newRating, "stars!");
-    alert(`Thank you for rating us ${newRating} stars!`);
+    alert(`Thank thank you for rating us ${newRating} stars!`);
   };
 
-  // <--- This function should be exactly like this
-  const handleGoToPipeline = () => {
-    navigate('/pipeline'); // <--- This should navigate to '/pipeline'
+  // Change this handler to navigate to the /pipelines dashboard
+  const handleGoToPipelinesDashboard = () => {
+    navigate('/pipelines'); // Navigate to the dashboard
   };
 
   const currentYear = new Date().getFullYear();
@@ -41,9 +41,8 @@ function HomePage() {
       </section>
       <section className="home-cta">
         <p>Ready to get started?</p>
-        {/* <--- This is the button and its onClick handler */}
-        <button className="start-button" onClick={handleGoToPipeline}>
-          Go to Pipeline
+        <button className="start-button" onClick={handleGoToPipelinesDashboard}> {/* Updated onClick */}
+          Go to My Pipelines
         </button>
       </section>
       <footer className="home-footer">

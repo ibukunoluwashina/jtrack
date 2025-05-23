@@ -1,0 +1,73 @@
+/* src/pages/PipelinesDashboard.css */
+.pipelines-dashboard-container {
+  padding: 30px;
+  text-align: center;
+  background-color: #f7f9fc;
+  min-height: 100vh;
+  color: #333;
+}
+
+.pipelines-dashboard-container h2 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 40px;
+}
+
+.pipeline-list-actions {
+    margin-bottom: 30px;
+}
+
+.add-pipeline-button {
+  background-color: #3498db; /* Blue */
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.add-pipeline-button:hover {
+  background-color: #2980b9; /* Darker blue */
+  transform: translateY(-2px);
+}
+
+.pipelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pipeline-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  border-left: 6px solid #2ecc71; /* Accent color */
+}
+
+.pipeline-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.pipeline-card h3 {
+  color: #34495e;
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.pipeline-card p {
+  color: #555;
+  font-size: 1em;
+  margin-top: 15px;
+}
