@@ -1,44 +1,80 @@
-// src/components/pipeline/JobCard.js (assuming JobCard is in this folder based on our last successful structure)
-import React from 'react';
-import './JobCard.css'; // Ensure this CSS file exists and is styled
+// C:\Users\jilli\New folder (15)\jtrack\job-tracker\frontend\src\components\jobs\JobCard.js
 
-// Make sure your jobData includes these new properties:
-// { id: 'job-1', title: 'Setup React App', status: 'Done', description: '...', commentsCount: 3, filesCount: 1, dueDate: '2025-06-15' }
-const JobCard = ({ jobData, onViewJob, onUpdateJobStatus }) => { // Added onUpdateJobStatus if you have drag/drop or status change
-    const { id, title, status, description, commentsCount, filesCount, dueDate } = jobData;
+import React from 'react';
+import './JobCard.css'; // This CSS file should be in the same 'jobs' folder
+
+/**
+ * JobCard Component
+ * Displays a single job with its title, comments, files, and due date.
+ * Handles click to view job details.
+ *
+ * @param {object} props - The component's properties.
+ * @param {object} props.jobData - The job object containing id, title, commentsCount, filesCount, dueDate, etc.
+ * @param {function} props.onViewJob - Callback function when the card is clicked. Receives the full jobData object.
+ * @param {function} [props.onUpdateJobStatus] - Optional: Callback function for changing job status (e.g., for drag-and-drop).
+ */
+const JobCard = ({ jobData, onViewJob, onUpdateJobStatus }) => {
+    // Graceful handling if jobData is somehow undefined (though PipelinePage should prevent this)
+    if (!jobData) {
+        console.error("JobCard received undefined jobData!");
+        return null; // Don't render anything if data is missing
+    }
+
+    // Destructure jobData.
+    // 'id' and 'status' are accessed via jobData.id and jobData.status to avoid 'no-unused-vars' warning,
+    // as they are not directly rendered in the JSX in this version.
+    const { title, description, commentsCount, filesCount, dueDate } = jobData;
 
     return (
-        <div className="job-card" onClick={() => onViewJob(jobData)}> {/* Pass the whole jobData on click */}
+        // onClick now directly uses onViewJob, passing the whole jobData object
+        <div className="job-card" onClick={() => onViewJob(jobData)}>
             <div className="job-card-header">
                 <h4 className="job-card-title">{title}</h4>
-                {/* Display status more prominently if needed, or rely on column */}
-                {/* <span className={`job-status status-${status.toLowerCase().replace(' ', '-')}`}>{status}</span> */}
+                {/*
+                    Optional: Display status on the card if desired.
+                    If uncommented, you could put 'status' back into the destructuring if you prefer.
+                */}
+                {/* {jobData.status && (
+                    <span className={`job-status status-${jobData.status.toLowerCase().replace(' ', '-')}`}>
+                        {jobData.status}
+                    </span>
+                )} */}
             </div>
-            {/* Optional: Add description snippet if it makes sense */}
+
+            {/* Display description snippet if available */}
             {description && <p className="job-card-description">{description.substring(0, 50)}...</p>}
 
             <div className="job-meta">
                 {commentsCount > 0 && (
                     <span className="job-meta-item">
-                        💬 {commentsCount}
+                        {/* Accessible emoji: wrapped in span with role="img" and aria-label */}
+                        <span role="img" aria-label="comments count">💬</span> {commentsCount}
                     </span>
                 )}
                 {filesCount > 0 && (
                     <span className="job-meta-item">
-                        📁 {filesCount}
+                        {/* Accessible emoji */}
+                        <span role="img" aria-label="files count">📁</span> {filesCount}
                     </span>
                 )}
                 {dueDate && (
                     <span className="job-meta-item">
-                        🗓️ {dueDate}
+                        {/* Accessible emoji */}
+                        <span role="img" aria-label="due date">🗓️</span> {dueDate}
                     </span>
                 )}
             </div>
 
-            {/* If you have a dropdown or button to change status from the card itself */}
-            {/* <div className="job-actions">
-                <button onClick={(e) => { e.stopPropagation(); onUpdateJobStatus(id, 'Done'); }}>Mark Done</button>
-            </div> */}
+            {/* Optional: Add a button or dropdown for status change directly on the card */}
+            {/*
+            {onUpdateJobStatus && (
+                <div className="job-actions">
+                    <button onClick={(e) => { e.stopPropagation(); onUpdateJobStatus(jobData.id, 'Done'); }}>
+                        Mark Done
+                    </button>
+                </div>
+            )}
+            */}
         </div>
     );
 };
