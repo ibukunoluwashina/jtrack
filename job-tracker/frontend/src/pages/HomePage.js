@@ -1,8 +1,8 @@
 // src/pages/HomePage.js
-import React from 'react';
-import './HomePage.css';
-import RatingStars from '../ui/RatingStars';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import "./HomePage.css";
+import RatingStars from "../ui/RatingStars";
+import { useNavigate, Link } from "react-router-dom";
 
 function HomePage() {
   const navigate = useNavigate();
@@ -14,14 +14,14 @@ function HomePage() {
 
   // Change this handler to navigate to the /pipelines dashboard
   const handleGoToPipelinesDashboard = () => {
-    navigate('/pipelines'); // Navigate to the dashboard
+    navigate("/pipelines"); // Navigate to the dashboard
   };
 
   const currentYear = new Date().getFullYear();
-  const lastUpdateDate = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
+  const lastUpdateDate = new Date().toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 
   return (
@@ -29,6 +29,15 @@ function HomePage() {
       <header className="home-header">
         <h1>Welcome to Your Job Tracker!</h1>
         <p>Organize your job applications, projects, and tasks with ease.</p>
+        <div className="auth-links">
+          <Link to="/login" className="auth-link">
+            Login
+          </Link>
+          {" | "}
+          <Link to="/register" className="auth-link">
+            Register
+          </Link>
+        </div>
       </header>
       <section className="home-features">
         <h2>Key Features:</h2>
@@ -41,7 +50,7 @@ function HomePage() {
       </section>
       <section className="home-cta">
         <p>Ready to get started?</p>
-        <button className="start-button" onClick={handleGoToPipelinesDashboard}> {/* Updated onClick */}
+        <button className="start-button" onClick={handleGoToPipelinesDashboard}>
           Go to My Pipelines
         </button>
       </section>
